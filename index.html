@@ -1,0 +1,38 @@
+<!--111550168 陳奕 final project-3D ping pong game-->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D Ping Pong Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game"></div><!-- 遊戲畫面的主要容器:會將 Three.js 渲染的 3D Canvas 插入到此區域中。-->
+    <div id="gameInfo"><!-- 開始畫面:顯示標題，可以在這裡選擇三種模式、開始遊戲，並且以按鈕呼叫js function開始遊戲。-->
+        <h1 id="title">3D Ping Pong Game</h1>
+        <div id="startScreen">
+            <h2>Choose a mode to start!</h2>
+            <div style="display:flex; justify-content: center; gap: 20px;">
+                <button onclick="startGame('normal')">Easy</button>
+                <button onclick="startGame('picnic')">Medium</button>
+                <button onclick="startGame('bird')">Flappy Bird</button>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div id="endScreen" style="display:none;"> <!-- 結束畫面:顯示遊戲結果，以按鈕呼叫js function重新開始遊戲。-->
+            <h2 id="gameResult"></h2>
+            <p id="finalScore"></p>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+
+    <div id="scoreboard" style="display:none;">player: 0 | AI: 0</div><!-- 分數板:顯示玩家與 AI 比分，初始設為隱藏，開始遊戲後 js 控制顯示與更新比分。-->
+    <div id="gameState" style="display:none;">...</div><!-- 遊戲狀態:用於顯示遊戲狀態的 div，初始設為隱藏，開始遊戲後 js 控制顯示與更新遊戲狀態。-->
+
+    <script src="bundle.js"></script> <!--webpack build好的檔案包含所有模組之間的依賴 -->
+</body>
+
+</html>

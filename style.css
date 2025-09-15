@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Peralta&display=swap');
+
+body {
+    margin: 0;
+    /* 外 */
+    padding: 0;
+    /* 內 */
+    background-image: url('images/ping_pong.gif');
+    background-size: cover;
+    /* 縮放背景圖片，cover 保持比例填滿 */
+    background-position: center center;
+    /* 圖片置中 */
+    background-repeat: no-repeat;
+    /* 不重複平鋪 */
+    font-family: "Peralta", Arial, sans-serif;
+}
+
+#game {
+    position: fixed;
+    /*一直保留在畫面中不隨滾輪移動 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    /* 在背景層 */
+}
+
+#gameInfo {
+    position: absolute;
+    /*元素會忽略它,relative:佔據文檔中的位置*/
+    transform: translate(-50%, -50%);
+    /* 修正偏移量，真正置中 */
+    top: 35%;
+    left: 50%;
+    /* 從左方 50% */
+    display: flex;
+    /* 使用 Flexbox */
+    flex-direction: column;
+    /* 元素垂直排列 */
+    align-items: center;
+    /* 垂直置中 */
+}
+
+#title {
+    transform: translate(0, -150px);
+    /* (x, y)*/
+}
+
+#gameInfo h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ff005e;
+    /* 陰影：x offset, y offset, 模糊radius, color */
+    animation: glow 1.5s infinite alternate;
+    /* 來回交替動畫 */
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    /* 水平置中 */
+    align-items: center;
+    /* 垂直置中 */
+    height: 100vh;
+}
+
+#startScreen,
+#endScreen {
+    position: absolute;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* 文字置中 */
+    z-index: 10;
+    /* 在遊戲層上方 */
+}
+
+#startScreen h2,
+#endScreen h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#startScreen button,
+#endScreen button {
+    background-color: #00bfa5;
+    font-family: "Peralta", Arial, sans-serif;
+    font-size: 18px;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    /* hover,手指樣式 */
+    transition: background-color 0.3s;
+    /* bg color變化過渡 */
+}
+
+#startScreen button:hover,
+#endScreen button:hover {
+    background-color: #64dcce;
+}
+
+#scoreboard {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    background: rgba(20, 255, 216, 0.3);
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+#gameState {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    background: rgba(20, 255, 216, 0.3);
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #ff005e, 0 0 10px #ff005e, 0 0 20px #ff005e, 0 0 40px #ff005e, 0 0 80px #ff005e;
+        /* 五層陰影：x offset, y offset, 模糊radius, color */
+    }
+
+    100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 40px #00d4ff, 0 0 80px #00d4ff, 0 0 160px #00d4ff;
+    }
+}

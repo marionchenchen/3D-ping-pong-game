@@ -1,0 +1,25 @@
+{
+  "name": "3d-pingpong-game",
+  "version": "1.0.0",
+  "main": "src/game.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve --open"
+  },
+  "dependencies": {
+    "three": "^0.155.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.3",
+    "@babel/preset-env": "^7.27.2",
+    "babel-loader": "^10.0.0",
+    "vite": "^4.0.0",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  },
+  "keywords": [],
+  "author": "moony chen",
+  "license": "ISC",
+  "description": ""
+}
